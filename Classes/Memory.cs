@@ -18,8 +18,10 @@ namespace MultiprocessorSimulator
             Logging.PrintInfo(Logging.MEMORY_POPULATED);
         }
 
-        public static void Write(int tag, Block block) => _memory[tag] = block;
+        public static void Write(int tag, Block block) =>
+            _memory[tag] = new Block(block.Words);
 
-        public static Block Read(int tag) => _memory[tag];
+        public static Block Read(int tag) =>
+            new Block(_memory[tag].Words);
     }
 }
